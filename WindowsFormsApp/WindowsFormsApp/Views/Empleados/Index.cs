@@ -1,12 +1,10 @@
 ﻿using System;
-using System.Configuration;
 using System.Windows.Forms;
 
 namespace WindowsFormsApp.Empleados
 {
     public partial class Index : Form
     {
-        string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
         public Index()
         {
             InitializeComponent();
@@ -29,6 +27,20 @@ namespace WindowsFormsApp.Empleados
             var d = (Guid)dataGridViewEmpleados.CurrentRow.Cells[0].Value;
             Edit editar = new Edit(d);
             editar.ShowDialog();
+            try
+            {
+                dataGridViewEmpleados.DataSource = EmpleadosDbContext.ToList(); ;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void toolStripButtonNuevo_Click(object sender, EventArgs e)
+        {
+            Create Create = new Create();
+            Create.ShowDialog();
             try
             {
                 dataGridViewEmpleados.DataSource = EmpleadosDbContext.ToList(); ;

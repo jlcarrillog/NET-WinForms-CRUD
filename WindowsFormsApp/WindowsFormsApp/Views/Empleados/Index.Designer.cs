@@ -28,8 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Index));
             this.dataGridViewEmpleados = new System.Windows.Forms.DataGridView();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripButtonNuevo = new System.Windows.Forms.ToolStripButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmpleados)).BeginInit();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewEmpleados
@@ -45,21 +49,48 @@
             this.dataGridViewEmpleados.Size = new System.Drawing.Size(1067, 554);
             this.dataGridViewEmpleados.TabIndex = 0;
             // 
+            // toolStrip1
+            // 
+            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripButtonNuevo});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(1067, 27);
+            this.toolStrip1.TabIndex = 1;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripButtonNuevo
+            // 
+            this.toolStripButtonNuevo.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripButtonNuevo.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonNuevo.Image")));
+            this.toolStripButtonNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonNuevo.Name = "toolStripButtonNuevo";
+            this.toolStripButtonNuevo.Size = new System.Drawing.Size(56, 24);
+            this.toolStripButtonNuevo.Text = "Nuevo";
+            this.toolStripButtonNuevo.Click += new System.EventHandler(this.toolStripButtonNuevo_Click);
+            // 
             // Index
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(1067, 554);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.dataGridViewEmpleados);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Index";
             this.Text = "Index";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEmpleados)).EndInit();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridViewEmpleados;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonNuevo;
     }
 }

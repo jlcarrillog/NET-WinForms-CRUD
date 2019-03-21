@@ -25,19 +25,7 @@ namespace WindowsFormsApp
             this.panelMain.Controls.Add(Titulo);
             //this.panelMain.Controls.Add(Logo);
         }
-
-        private void listaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Empleados(new Empleados.Index());
-        }
-
-        private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Empleados.Create Create = new Empleados.Create();
-            Create.ShowDialog();
-            Empleados(new Empleados.Index());
-        }
-        private void Empleados(Form f)
+        private void Panel(Form f)
         {
             f.TopLevel = false;
             f.AutoScroll = true;
@@ -46,6 +34,11 @@ namespace WindowsFormsApp
             f.FormBorderStyle = FormBorderStyle.None;
             f.Dock = DockStyle.Fill;
             f.Show();
+        }
+
+        private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Panel(new Empleados.Index());
         }
     }
 }
