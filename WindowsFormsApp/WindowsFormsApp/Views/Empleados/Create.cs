@@ -16,15 +16,9 @@ namespace WindowsFormsApp.Empleados
             empleado.EmpleadoID = Guid.NewGuid();
             empleado.Nombre = textBoxNombre.Text;
             empleado.Edad = (int)numericUpDownEdad.Value;
-            try
-            {
-                EmpleadosDbContext.Add(empleado);
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
+            EmpleadosDbContext.Add(empleado);
+            this.Close();
         }
     }
 }

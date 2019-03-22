@@ -20,16 +20,10 @@ namespace WindowsFormsApp.Empleados
             empleado.EmpleadoID = Guid.NewGuid();
             empleado.Nombre = textBoxNombre.Text;
             empleado.Edad = (int)numericUpDownEdad.Value;
-            try
-            {
-                EmpleadosDbContext.Update(data.EmpleadoID, empleado);
-                MessageBox.Show("Editado");
-                this.Close();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
+
+            EmpleadosDbContext.Update(data.EmpleadoID, empleado);
+            MessageBox.Show("Editado");
+            this.Close();
         }
 
         private void buttonBorrar_Click(object sender, EventArgs e)
