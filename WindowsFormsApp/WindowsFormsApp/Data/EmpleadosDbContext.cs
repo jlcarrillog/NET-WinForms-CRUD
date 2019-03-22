@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
@@ -9,26 +8,16 @@ namespace WindowsFormsApp.Empleados
     class EmpleadosDbContext
     {
         private static string connectionString = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-        internal static List<Empleado> ToList()
+        internal static DataTable ToList()
         {
-            var data = new List<Empleado>();
 
             SqlConnection con = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand("SELECT [EmpleadoID], [Nombre], [Edad] FROM [Empleados]", con);
-
+            DataTable data = new DataTable();
             try
             {
                 con.Open();
-                SqlDataReader dr = cmd.ExecuteReader();
-                while (dr.Read())
-                {
-                    data.Add(new Empleado
-                    {
-                        EmpleadoID = (Guid)dr["EmpleadoID"],
-                        Nombre = (string)dr["Nombre"],
-                        Edad = (int)dr["Edad"]
-                    });
-                }
+                data.Load(cmd.ExecuteReader());
                 return data;
             }
             catch (Exception)
