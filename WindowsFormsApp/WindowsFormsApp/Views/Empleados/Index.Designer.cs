@@ -56,7 +56,7 @@
             this.toolStripButtonNuevo});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1067, 27);
+            this.toolStrip1.Size = new System.Drawing.Size(1067, 25);
             this.toolStrip1.TabIndex = 1;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -66,9 +66,8 @@
             this.toolStripButtonNuevo.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonNuevo.Image")));
             this.toolStripButtonNuevo.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonNuevo.Name = "toolStripButtonNuevo";
-            this.toolStripButtonNuevo.Size = new System.Drawing.Size(56, 24);
+            this.toolStripButtonNuevo.Size = new System.Drawing.Size(46, 22);
             this.toolStripButtonNuevo.Text = "Nuevo";
-            this.toolStripButtonNuevo.Click += new System.EventHandler(this.toolStripButtonNuevo_Click);
             // 
             // Index
             // 

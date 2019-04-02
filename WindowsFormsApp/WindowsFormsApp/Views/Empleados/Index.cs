@@ -9,22 +9,36 @@ namespace WindowsFormsApp.Empleados
         {
             InitializeComponent();
 
-            dataGridViewEmpleados.DataSource = EmpleadosDbContext.ToList();
+            dataGridViewEmpleados.DataSource = EmpleadosDbContext.ToList();            
+            dataGridViewEmpleados.Columns["EmpleadoID"].Visible = false; //Oculta la columna de ID
+            dataGridViewEmpleados.Columns["Direccion"].Visible = false; //Oculta la columna de Direccion
+            dataGridViewEmpleados.Columns["Edad"].Visible = false; //Oculta la columna de Edad
+            dataGridViewEmpleados.Columns["Foto"].Visible = false; //Oculta la columna de Foto
 
-            dataGridViewEmpleados.Columns["EmpleadoID"].Visible = false;
-            dataGridViewEmpleados.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridViewEmpleados.CellClick += editarClick;
+
+            dataGridViewEmpleados.SelectionMode = DataGridViewSelectionMode.FullRowSelect; //Selección por renglón            
+            dataGridViewEmpleados.CellClick += detailsClick; //Agrega el evento de clic en el renglón
+
+            toolStripButtonNuevo.Click += nuevoClick;
         }
-        private void editarClick(object sender, EventArgs e)
+        private void detailsClick(object sender, EventArgs e)
         {
             var d = (Guid)dataGridViewEmpleados.CurrentRow.Cells[0].Value;
-            Edit editar = new Edit(d);
+            Details editar = new Details(d);
             editar.ShowDialog();
 
             dataGridViewEmpleados.DataSource = EmpleadosDbContext.ToList();
         }
 
-        private void toolStripButtonNuevo_Click(object sender, EventArgs e)
+        private void editarClick(object sender, EventArgs e)
+        {
+            var d = (Guid)dataGridViewEmpleados.CurrentRow.Cells[0].Value;
+            Edit f = new Edit(d);
+            f.ShowDialog();
+
+            dataGridViewEmpleados.DataSource = EmpleadosDbContext.ToList();
+        }
+        private void nuevoClick(object sender, EventArgs e)
         {
             Create Create = new Create();
             Create.ShowDialog();
